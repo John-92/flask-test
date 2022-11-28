@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+用户注册
+{% endblock %}
+{% block middle %}
+    <p style="color: red">{{ msg }}</p>
+    <form action="" method="post">
+    <!--在form表单时，必须要有有names属性，传递给后端的变量需要获取name的属性 -->
+        <p><input type="text" name="username" placeholder="用户名"></p>
+        <p><input type="password" name="password" placeholder="密码"></p>
+        <p><input type="password" name="repassword" placeholder="确认密码"></p>
+        <p><input type="number" name="phone" placeholder="手机号码"></p>
+        <p><input type="submit" name="用户注册" ></p>
+    </form>
+{% endblock %}

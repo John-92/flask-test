@@ -1,0 +1,28 @@
+{% extends base.html %}
+{% block middle %}
+   <h1>用户信息</h1>
+   <span>当前用户人数 {{ users|length }}</span>
+    <table>
+           {% for user in users %}
+               <tr>
+                   <td>{{ loop.index }}</td>
+                   <td>{{ user.username }}</td>
+                   <td>{{ user.password }}</td>
+                   <td>{{ user.phone }}</td>
+                   <!-- javascript:;表示不执行href内容，执行onclick,在这里就是一个占位符的作用，里面的js会用到-->
+                   <td><a href="">修改</a><a href="javascript:;" onclick="del('{{  user.username }}')">删除</a></td>
+               </tr>
+           {% endfor %}
+
+    </table>
+{% endblock %}
+
+
+{% block myjs %}
+<script>
+ function del(username){
+     //js中location就类似于一个地址栏的作用，这里会将地址栏的url换成指定的内容,通过get请求
+     location.href="/del?username="+username
+ }
+</script>
+{% endblock %}
