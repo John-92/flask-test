@@ -98,3 +98,7 @@ def flattern(nestedList):
 
 
 # print(flattern([1, 2, [3, 4]]))
+
+import datetime
+
+print(datetime.datetime.now())
