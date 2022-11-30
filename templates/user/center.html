@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+
+    <table border="1" cellspacing="0" width="50%">
+        <div>
+            <input type="text" id="search" name="search" placeholder="输入你搜索的关键词"><input id="search1" href="" type="button" value="搜索">
+        </div>
+<tr>
+    <td> 序号</td>
+    <td>用户名</td>
+    <td>密码</td>
+    <td>电话</td>
+    <td>更新日期</td>
+    <td>
+        <!--<a href="" >更新</a><a href="">删除</a>-->操作 </td>
+</tr>
+
+        {% for user in users %}
+<tr>
+    <td> {{ loop.index }}</td>
+    <td>{{ user.username }}</td>
+    <td>{{ user.password }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.rdatetime }}</td>
+    <td><a href="{{ url_for('user.update') }}?id={{ user.id }}">更新</a>
+        <!--固定的href， 也可以用location.href ,url_for的函数名一定要用引号-->
+        <a id="del" href="{{ url_for('user.del') }}?id={{ user.id }}">删除</a> </td>
+</tr>
+        {% endfor %}
+    </table>
+<script>
+ $("#search1").click(function (){
+     {#alert("hh")#}
+     //取到文本框的值
+     let content=$(":input[name='search']").val();
+     {#alert(content)#}
+     //将网页内容转发到后端--->通过js的location.href---->本质是通过url的方式传给后端
+     location.href='{{ url_for('user.user_search') }}?search='+content
+     {#alert(location.href)#}
+
+ })
+
+</script>
+
+
+</body>
+</html>

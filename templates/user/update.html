@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{{ url_for('user.update') }}" method="POST">
+<!--虽然从用户的角度来说不需要id,但是在程序需要id,因此需要将其隐藏 -->
+<p><input type="hidden" name="id" value="{{ user.id }}"></p>
+<p><input type="text" name="username" value="{{ user.username }}"></p>
+<p><input type="text" name="phone"  value="{{ user.phone }}"></p>
+<p><input type="submit" value="提交"></p>
+</form>
+</body>
+</html>

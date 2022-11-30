@@ -15,7 +15,6 @@ from ext import db
 def create_app():
     #指定模板和静态文件的目录,因为Flask默认的template和static路径都在同级目录，如果要定制需要指定
     app=Flask(__name__,template_folder="../templates",static_folder="../static")
-
     #直接导入flask的settings配置文件
     app.config.from_object(settings.DevelopmentConfig)
 

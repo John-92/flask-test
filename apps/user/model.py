@@ -18,6 +18,8 @@ class User(db.Model):
     username = db.Column(db.String(15),nullable=False)
     password = db.Column(db.String(12),nullable=False)
     phone = db.Column(db.String(11),unique=True)
+    email = db.Column(db.String(20))
+    # isDeleted=db.Column(db.String(1))
     rdatetime=db.Column(db.DateTime,default=datetime.now())
 
 
