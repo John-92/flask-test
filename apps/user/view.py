@@ -18,7 +18,7 @@ users= []
 # def center():
 #     user=User.query.filter().all()
 #     return render_template('user/center.html',user=user)
-
+#增加用户
 @user_bp.route("/register",methods=['GET','POST'])
 def user_register():
     if request.method=="POST":
@@ -60,7 +60,7 @@ def user_register():
 #             return '删除成功'
 #     else:
 #         return '删除失败'
-
+#删除用户
 #endpoint给视图函数取别名
 @user_bp.route("/del",endpoint='del')
 def del_user():
@@ -86,7 +86,7 @@ def del_user():
     return redirect(url_for('user.user_center'))
     # pass
 
-
+#首页
 @user_bp.route("/")
 def user_center():
     #继承db.Model的方法
@@ -95,6 +95,7 @@ def user_center():
     return render_template('user/center.html',users=users)
 # class UserResouce(Resource):
 
+#搜索用户信息
 # 搜索只要get方法就行了
 @user_bp.route("/saerch")
 def user_search():
@@ -105,7 +106,7 @@ def user_search():
     users=User.query.filter(User.username.contains(search))
     return render_template('user/center.html',users=users)
 
-
+#对用户信息进行修改，get代表对资源的查找，post代表对资源的更改
 @user_bp.route("/update",endpoint='update',methods=['GET','POST'])
 def user_update():
     print("hhh")
